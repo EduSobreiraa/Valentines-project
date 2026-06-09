@@ -1,18 +1,29 @@
-# React + Vite
+# ⏳ Estudo de Fluxo de Dados e Componentização em React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório foi desenvolvido para documentar, fixar e praticar conceitos fundamentais do ecossistema React, com foco total no entendimento do fluxo unidirecional de dados (Props) e na renderização dinâmica de listas.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🧠 Conceitos Chave Praticados
 
-## React Compiler
+* **Componentização Avançada:** Segmentação da interface em camadas com responsabilidades isoladas (`Section` -> `Container` -> `Item`).
+* **Props (Propriedades):** Entendimento prático de como objetos e arrays trafegam do componente pai para componentes filhos.
+* **Renderização Dinâmica com `.map()`:** Transformação de dados estruturados em JavaScript (JSON/Arrays) em elementos de interface JSX de forma automatizada.
+* **Rastreabilidade de Código:** Debug de erros comuns de referência (`undefined`) no console do navegador.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## 🗺️ Mapeamento e Fluxo dos Dados
 
-## Expanding the ESLint configuration
+Para evitar o acoplamento de código, a arquitetura do projeto foi desenhada para que os dados fluam de cima para baixo de forma clara e previsível. Abaixo está a representação de como a informação trafega entre os arquivos:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+src/
+├── data/
+│   └── timeline.js         # Origem: Array contendo os objetos e dados brutos.
+├── App.jsx                 # Inicializador: Importa os dados e injeta na prop 'timeline'.
+├── sections/
+│   └── TimeLineSection.jsx # Camada Estrutural: Recebe 'props.timeline' e repassa adiante como 'itens'.
+└── components/
+    ├── TimeLine.jsx        # Camada Organizadora: Consome 'props.itens' e faz o mapeamento (.map).
+    └── TimeLineItem.jsx    # Camada Visual: Recebe as propriedades individuais e desenha o HTML final.
