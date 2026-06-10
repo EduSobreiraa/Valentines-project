@@ -1,20 +1,30 @@
 // src/components/TimeLineItem.jsx
 
-export default function TimeLineItem(props) {
+export default function TimeLineItem({
+  data,
+  titulo,
+  descricao,
+  foto,
+
+}) {
   return (
-    <div className="timeline-item">
-      <h3>{props.titulo}</h3>
-      <span>{props.data}</span>
-      <p>{props.descricao}</p>
-      
-      {/* Lógica condicional: Se 'props.foto' existir e não for null, renderiza a tag img */}
-      {props.foto && (
+    //Separação de cada momento da timeline em um article.
+    <article className="timeline-item">
+
+      {/*Separação do conteúdo das imagens para melhorar organização*/} 
+      <div className="timeline-content">
+      <h3>{titulo}</h3>
+      <time>{data}</time>
+      <p>{descricao}</p>
+      </div>
+
+      {foto && (
         <img 
-          src={props.foto} 
-          alt={props.titulo} 
-          style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px', marginTop: '10px' }} 
+          src={foto} 
+          alt={titulo} 
+          className="timeline-image"
         />
       )}
-    </div>
+    </article>
   );
 }
