@@ -14,7 +14,7 @@ export default function TimeLine(props){
 
 
                 //Retoruna um valor em html que contém os dados importantes para realização do código
-
+                return(
                 <TimeLineItem
                 key={item.id}
                 data={item.data}
@@ -22,7 +22,7 @@ export default function TimeLine(props){
                 descricao={item.descricao}
                 foto={item.foto}
                 />
-            })}
+            )})}
         </div>
     )
 }

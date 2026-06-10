@@ -1,0 +1,33 @@
+
+.timeline-item{
+    max-width: 700px;
+    width: 100%;
+
+
+    display: flex;
+    gap: 40px;
+    text-align: center;
+    align-items: center ;
+
+    padding:20px 40px;
+
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.12);
+    
+}
+.timeline-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeline-image{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.timeline-text{
+    color:#333333;
+}

@@ -11,7 +11,7 @@ export const timeline = [
         data:"06/12/2025",
         titulo:"Pedido de namoro pt.1",
         descricao:"A concretização da certeza de amor.",
-        foto:"img02.jpeg"
+        foto:"/photos/img02.jpeg"
     },
 
     {
@@ -21,13 +21,14 @@ export const timeline = [
         descricao:"A filha já foi, a missão agora é conquistar os pais!",
         foto:"/photos/img03.jpeg"
     },
-    {
+    /*{
         id:4,
         data:"30/01/2026",
         titulo:"Aniversário de Memel <3",
         descricao:"Dia de prestigiar a vida do meu amor.",
         foto:null 
-    },
+    
+    },*/
     {
         id:5,
         data:"01/02/2026",

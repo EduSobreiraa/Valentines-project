@@ -1,6 +1,8 @@
+import "./TimeLine.css"
+
 // src/components/TimeLineItem.jsx
 
-export default function TimeLineItem({
+export default function TimelineItem({
   data,
   titulo,
   descricao,
@@ -13,9 +15,9 @@ export default function TimeLineItem({
 
       {/*Separação do conteúdo das imagens para melhorar organização*/} 
       <div className="timeline-content">
-      <h3>{titulo}</h3>
-      <time>{data}</time>
-      <p>{descricao}</p>
+      <h3 className="timeline-text">{titulo}</h3>
+      <time className="timeline-text">{data}</time>
+      <p className="timeline-text">{descricao}</p>
       </div>
 
       {foto && (
