@@ -4,7 +4,7 @@ export const timeline = [
         data:"20/09/2025",
         titulo:"Primeiro beijo",
         descricao:"O dia em que minha vida mudou.",
-        foto:"photos/img01.jpeg"
+        foto:"/photos/img01.jpeg"
     },
     {
         id:2,
@@ -21,14 +21,14 @@ export const timeline = [
         descricao:"A filha já foi, a missão agora é conquistar os pais!",
         foto:"/photos/img03.jpeg"
     },
-    /*{
+    {
         id:4,
         data:"30/01/2026",
         titulo:"Aniversário de Memel <3",
         descricao:"Dia de prestigiar a vida do meu amor.",
-        foto:null 
+        foto:"/photos/img04.jpeg"
     
-    },*/
+    },
     {
         id:5,
         data:"01/02/2026",

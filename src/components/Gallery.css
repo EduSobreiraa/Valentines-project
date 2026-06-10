@@ -1,0 +1,45 @@
+.gallery-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content:center ;
+}
+
+.gallery-item{
+    background-color: white;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.45);
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+}
+.gallery-image{
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .gallery-container {
+        /* Diminui o espaçamento entre os itens para caber melhor na tela menor */
+        gap: 20px; 
+        padding: 0 15px; /* Adiciona uma folga nas laterais da tela */
+    }
+
+    .gallery-item {
+        /* Garante que o container do item não passe do tamanho da tela */
+        width: 100%; 
+        max-width: 350px; /* Mantém o limite do design original */
+        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.25); /* Sombra um pouco mais leve para mobile */
+    }
+
+    .gallery-image {
+        /* Torna a imagem responsiva: ela vai ocupar 100% da largura do item */
+        width: 100%; 
+        /* Altera a altura para auto (opcional) para manter a proporção, 
+           ou mantém um valor fixo menor se quiser manter o formato quadrado. Ex: height: 300px; */
+        height: auto; 
+        aspect-ratio: 1 / 1; /* Garante que ela continue perfeitamente quadrada (350x350) */
+    }
+}

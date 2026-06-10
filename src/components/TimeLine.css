@@ -1,41 +1,148 @@
 
 .timeline-item{
-    max-width: 700px;
+    max-width: 44%;
     width: 100%;
 
 
     display: flex;
-    gap: 40px;
-    text-align: center;
+    flex-direction: row;
+
+
+    justify-content: space-between;
+
+    gap: 20px;
+    text-align: left;
     align-items: center ;
 
-    padding:20px 40px;
+    padding:20px;
 
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.12);
+    border-radius: 15px;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.45);
+    position: relative;
+    margin-bottom: 40px;
     
-}
-.timeline-item.left{   
-    align-self: flex-end;
+    box-sizing: border-box;
 }
 
-.timeline-item.right{
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-color: #ff4d6d;
+    border-radius: 50%;
+    z-index: 10; 
+}
+/*Elementos da esquerda*/
+.timeline-item.left{   
     align-self: flex-start;
 }
 
-.timeline-container{
+/*Div com o conteudo/textos*/
+.timeline-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 8px; /* Dá um espacinho sutil entre Título, Data e Descrição */
+    text-align: left;
+    padding-right: 15px; /* Evita que o texto encoste na imagem */
 }
 
+.timeline-item.left::after{
+    right: calc(-13.6% - 8px); 
+    left: auto;
+}   
+
+
+.timeline-item.right{
+    align-self: flex-end;
+}
+
+.timeline-item.right::after{
+    left: calc(-13.6% - 8px);
+    right: auto;
+}
+
+
+
+.timeline-container {
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 60px 0;
+}
+
+/*Esse before eh uma pseudoclasse que eh renderizada antes dos elementos da secao*/
+.timeline-container::before{
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background-color: #ffb3c6;
+
+    transform: translateX(-50%);
+
+
+
+    
+
+}
+
+
 .timeline-image{
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
 }
 
 .timeline-text{
     color:#333333;
+}
+
+@media screen and (max-width: 768px) {
+
+    .timeline-container::before {
+        left: 30px; /* Em vez de 50%, a linha agora fica fixa perto da borda esquerda */
+        transform: none; /* Remove o ajuste de centralização anterior */
+    }
+
+    /* 2. REESTRUTURA OS CARDS */
+    .timeline-item {
+        max-width: calc(100% - 60px); /* O card ocupa quase a tela toda, deixando espaço para a linha */
+        width: 100%;
+        margin-left: 60px; /* Empurra o card para a direita para não cobrir a linha rosa */
+        align-self: flex-end !important; /* Força TANTO os cards left quanto right a irem para a direita */
+        
+        /* Se a tela for muito pequena, muda para coluna para a foto não esmagar o texto */
+        flex-direction: column; 
+        text-align: center;
+    }
+    
+    .timeline-content {
+        padding-right: 0;
+        text-align: center; /* Centraliza o texto no mobile */
+    }
+
+    .timeline-image {
+        width: 100%; /* A foto passa a ocupar a largura total disponível no card */
+        max-height: 200px; /* Limita a altura para não ficar gigante */
+    }
+
+    /* 3. REPOSICIONA TODAS AS BOLINHAS NA ESQUERDA */
+    /* Como todos os cards foram para a direita da linha, todas as bolinhas precisam 
+       ficar presas na borda ESQUERDA de cada card para interceptar a linha rosa */
+    .timeline-item.left::after,
+    .timeline-item.right::after {
+        left: -38px; /* Ajuste fixo em pixels para cravar a bolinha em cima da linha na esquerda */
+        right: auto; /* Anula o valor de right que usamos no desktop */
+    }
 }
