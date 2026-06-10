@@ -20,6 +20,7 @@ export default function TimeLine(props){
                     data={item.data}
                     titulo={item.titulo}
                     descricao={item.descricao}
+                    foto={item.foto}
                 />)
             })}
         </div>
