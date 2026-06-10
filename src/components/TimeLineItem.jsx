@@ -7,12 +7,12 @@ export default function TimelineItem({
   titulo,
   descricao,
   foto,
+  lado
 
 }) {
   return (
     //Separação de cada momento da timeline em um article.
-    <article className="timeline-item">
-
+    <article className={`timeline-item ${lado}`}>
       {/*Separação do conteúdo das imagens para melhorar organização*/} 
       <div className="timeline-content">
       <h3 className="timeline-text">{titulo}</h3>

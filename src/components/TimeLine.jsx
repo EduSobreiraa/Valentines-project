@@ -10,7 +10,7 @@ export default function TimeLine(props){
         //Cria um container para vizualização de HTML
         <div className="timeline-container">
 
-            {props.itens.map((item) =>{ //Mapeia os dados timeline recebidos via props.timeline
+            {props.itens.map((item,index) =>{ //Mapeia os dados timeline recebidos via props.timeline
 
 
                 //Retoruna um valor em html que contém os dados importantes para realização do código
@@ -21,6 +21,7 @@ export default function TimeLine(props){
                 titulo={item.titulo}
                 descricao={item.descricao}
                 foto={item.foto}
+                lado = {index%2===0? "right" : "left"}
                 />
             )})}
         </div>
