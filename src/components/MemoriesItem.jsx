@@ -1,31 +1,25 @@
 import "./Memories.css"
 
-export default function MemoriesItem({
-    tipo,
-    foto,
-    mensagem,
-}){
-    if (tipo ==="photo") {
-        return(
-            <article className="memories-item-photo">
-                <img 
-                src={foto} 
-                alt={mensagem}
-                className="memories-image" 
-                />
-            </article>
-        )
-    } else {
-        return(
-            <article className="memories-item-heart">
-                <div className="memories-content">
-                <span className="memories-heart">❤️</span>
-                <h3 className="memories-texto">{mensagem}</h3>
+export default function MemoriesItem({ tipo, foto, mensagem }) {
+    if (tipo === "photo") {
+        return (
+            <article className="memories-card memories-type-photo">
+                <div className="memories-photo-wrapper">
+                    <img 
+                        src={foto} 
+                        alt={mensagem || "Memória especial"}
+                        className="memories-image" 
+                    />
                 </div>
             </article>
-        )
-    }
-
-
+        );
+    } 
     
+    // Tipo "heart" ou texto explicativo
+    return (
+        <article className="memories-card memories-type-heart">
+            <span className="memories-heart" aria-hidden="true">❤️</span>
+            <p className="memories-text">{mensagem}</p>
+        </article>
+    );
 }

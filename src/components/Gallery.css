@@ -6,11 +6,29 @@
 }
 
 .gallery-item{
-    background-color: #FAF0E6;
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.45);
+    background-color: white;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.45);
     border-radius: 15px;
     padding: 10px;
+    position: relative;
     text-align: center;
+}
+
+.gallery-item::before {
+  content: "";
+  position: absolute;
+
+  top: -10px;
+  left: 50%;
+
+  transform: translateX(-50%) rotate(-3deg);
+
+  width: 70px;
+  height: 20px;
+
+  background: rgba(232, 128, 135, 0.5);
+
+  border-radius: 4px;
 }
 .gallery-image{
     width: 350px;
@@ -20,6 +38,9 @@
     flex-shrink: 0;
 }
 
+.gallery-text{ 
+    color: #e88087;
+}
 @media screen and (max-width: 768px) {
     .gallery-container {
         /* Diminui o espaçamento entre os itens para caber melhor na tela menor */
@@ -31,7 +52,7 @@
         /* Garante que o container do item não passe do tamanho da tela */
         width: 100%; 
         max-width: 350px; /* Mantém o limite do design original */
-        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.25); /* Sombra um pouco mais leve para mobile */
+        box-shadow: 0 2px 8px 0 #635063(0,0,0,0.25); /* Sombra um pouco mais leve para mobile */
     }
 
     .gallery-image {

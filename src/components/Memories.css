@@ -1,33 +1,65 @@
-.memories-item-photo{
-    display: flex;
-    justify-content: center;
-}
-
-.memories-container{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    
-}
-.memories-item-heart{
+/* Container que envelopa a lista de memórias no componente Pai */
+.memories-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
-    gap: 10px;
-    padding: 10px;
-}
-.memories-image{
-    max-width: 400px;
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    flex-shrink: 0;
+    gap: 24px; /* Espaçamento equilibrado entre os blocos */
+    padding: 40px 20px;
+    background-color: #FDFBF7; /* Fundo off-white minimalista */
 }
 
-.memories-heart{
-    font-size: 3rem;
+/* Base comum para os dois tipos de cards */
+.memories-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.30); /* Sombra super leve */
+    max-width: 420px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Customização do bloco de Foto */
+.memories-type-photo {
+    padding: 12px;
+}
+
+.memories-photo-wrapper {
+    width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+}
+
+.memories-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Customização do bloco de Texto/Coração */
+.memories-type-heart {
+    padding: 24px;
+    text-align: center;
+    background-color: hsl(0, 100%, 92%);
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.45);
+}
+
+.memories-heart {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.memories-text {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #2C2523;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0;
 }

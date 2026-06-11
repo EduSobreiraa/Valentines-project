@@ -16,7 +16,7 @@
 
     padding:20px;
 
-    background: #FAF0E6;
+    background: hsl(0, 100%, 92%);
     border-radius: 15px;
     box-shadow: 0 4px 16px 0 rgba(0,0,0,0.45);
     position: relative;
@@ -105,7 +105,7 @@
 }
 
 .timeline-text{
-    color:#333333;
+    color:#2C2523;
 }
 
 .timeline-divisor{
