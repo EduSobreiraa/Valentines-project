@@ -16,7 +16,7 @@
 
     padding:20px;
 
-    background: white;
+    background: #FAF0E6;
     border-radius: 15px;
     box-shadow: 0 4px 16px 0 rgba(0,0,0,0.45);
     position: relative;
@@ -106,6 +106,16 @@
 
 .timeline-text{
     color:#333333;
+}
+
+.timeline-divisor{
+    align-self: center;
+    align-items: center;
+}
+.timeline-title{
+    text-align: center;
+    height: 50px;
+    color: #5C4033;
 }
 
 @media screen and (max-width: 768px) {
