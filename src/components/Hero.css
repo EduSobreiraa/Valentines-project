@@ -1,0 +1,106 @@
+/* ====================================
+   HERO SECTION (Estilo Minimalista)
+   ==================================== */
+
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Altura total da tela do celular */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden; /* Garante que a imagem não ultrapasse */
+}
+
+/* Imagem de fundo estilo "polaroid" ou banner suave */
+.hero-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cobre todo o espaço sem distorcer */
+    z-index: 0;
+    filter: brightness(0.85); /* Deixa a imagem um pouco mais suave para o texto sobressair */
+}
+
+/* Camada escura sutil para contraste do texto (opcional, mas muito eficaz) */
+.hero-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+    z-index: 1;
+}
+
+/* Título principal */
+.hero-titulo {
+    position: relative;
+    z-index: 2;
+    font-family: 'Georgia', 'Times New Roman', serif; /* Toque mais romântico */
+    font-size: 2.2rem; /* Tamanho bom para mobile */
+    font-weight: 500;
+    color: white;
+    margin: 0 1.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+    max-width: 90%;
+}
+
+/* Subtítulo / frase de efeito */
+.hero-subtitulo {
+    position: relative;
+    z-index: 2;
+    font-family: system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0.75rem 1.5rem 2rem 1.5rem;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    max-width: 85%;
+    line-height: 1.4;
+}
+
+/* Scroll indicador (↓) minimalista */
+.hero-scroll {
+    position: relative;
+    z-index: 2;
+    font-size: 2rem;
+    font-weight: 300;
+    color: white;
+    animation: bounce 2s infinite;
+    opacity: 0.8;
+    margin-top: 2rem;
+    cursor: default;
+}
+
+/* Animação suave para o scroll */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* ------------------------------------
+   Ajuste para telas um pouco maiores 
+   (tablets pequenos / mobile landscape)
+   ------------------------------------ */
+@media (min-width: 480px) {
+    .hero-titulo {
+        font-size: 2.6rem;
+    }
+    
+    .hero-subtitulo {
+        font-size: 1.1rem;
+        max-width: 80%;
+    }
+}

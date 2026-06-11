@@ -1,75 +1,70 @@
+/* ====================================
+   TIMELINE SECTION - CSS COMPLETO
+   Estilo minimalista com toques rosê suaves
+   ==================================== */
 
-.timeline-item{
-    max-width: 44%;
-    width: 100%;
+/* ------------------------------------
+   SEÇÃO PRINCIPAL
+------------------------------------ */
+.timeline-section {
+    background-color: #faf7f5;
+    padding: 2rem 1rem 3rem 1rem;
+}
 
-
-    display: flex;
-    flex-direction: row;
-
-
-    justify-content: space-between;
-
-    gap: 20px;
-    text-align: left;
-    align-items: center ;
-
-    padding:20px;
-
-    background: hsl(0, 100%, 92%);
-    border-radius: 15px;
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.45);
+/* ------------------------------------
+   HEADER / TRANSIÇÃO
+------------------------------------ */
+.timeline-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
     position: relative;
-    margin-bottom: 40px;
-    
-    box-sizing: border-box;
 }
 
-.timeline-item::after {
+.timeline-divisor {
+    display: inline-block;
+    font-size: 1.2rem;
+    color: #e8a598;
+    letter-spacing: 4px;
+    margin-bottom: 0.75rem;
+    opacity: 0.8;
+}
+
+.timeline-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.8rem;
+    font-weight: 450;
+    color: #4a3731;
+    margin: 0;
+    letter-spacing: -0.3px;
+    display: inline-block;
+    background: linear-gradient(120deg, #e8a598 0%, #e8a598 40%, transparent 40%);
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    background-position: bottom left;
+    animation: underlineReveal 0.8s ease-out forwards;
+    padding-bottom: 8px;
+}
+
+@keyframes underlineReveal {
+    0% { background-size: 0% 2px; }
+    100% { background-size: 100% 2px; }
+}
+
+.timeline-header::after {
     content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
-    background-color: #ff4d6d;
-    border-radius: 50%;
-    z-index: 10; 
-}
-/*Elementos da esquerda*/
-.timeline-item.left{   
-    align-self: flex-start;
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: #d4c3bc;
+    margin: 1rem auto 0 auto;
 }
 
-/*Div com o conteudo/textos*/
-.timeline-content {
-    display: flex;
-    flex-direction: column;
-    gap: 8px; /* Dá um espacinho sutil entre Título, Data e Descrição */
-    text-align: left;
-    padding-right: 15px; /* Evita que o texto encoste na imagem */
-}
-
-.timeline-item.left::after{
-    right: calc(-13.6% - 8px); 
-    left: auto;
-}   
-
-
-.timeline-item.right{
-    align-self: flex-end;
-}
-
-.timeline-item.right::after{
-    left: calc(-13.6% - 8px);
-    right: auto;
-}
-
-
-
+/* ------------------------------------
+   CONTAINER PRINCIPAL DA TIMELINE
+------------------------------------ */
 .timeline-container {
     width: 100%;
-    max-width: 1200px; 
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -77,82 +72,199 @@
     padding: 60px 0;
 }
 
-/*Esse before eh uma pseudoclasse que eh renderizada antes dos elementos da secao*/
-.timeline-container::before{
-    content: " ";
+/* Linha central vertical (DESKTOP) */
+.timeline-container::before {
+    content: "";
     position: absolute;
     top: 0;
     bottom: 0;
     left: 50%;
-    width: 4px;
-    background-color: #ffb3c6;
-
+    width: 3px;
+    background-color: #f0d6d0;
     transform: translateX(-50%);
-
-
-
-    
-
 }
 
+/* ------------------------------------
+   CARDS DA TIMELINE (DESKTOP)
+------------------------------------ */
+.timeline-item {
+    max-width: 44%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: left;
+    align-items: center;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    position: relative;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    
+    /* TOQUE ROSA: borda superior sutil */
+    border-top: 2px solid #e8a598;
+}
 
-.timeline-image{
+/* TOQUE ROSA: sombra mais rosada ao hover */
+.timeline-item:hover {
+    box-shadow: 0 4px 20px rgba(232, 165, 152, 0.15);
+    border-top-color: #d4847a;
+}
+
+/* TOQUE ROSA: fundo sutil no conteúdo ao hover */
+.timeline-item:hover .timeline-content {
+    background: linear-gradient(90deg, rgba(232, 165, 152, 0.03) 0%, transparent 100%);
+}
+
+/* Bolinhas rosas na linha */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    background-color: #e8a598;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Cards da esquerda */
+.timeline-item.left {
+    align-self: flex-start;
+}
+
+.timeline-item.left::after {
+    right: calc(-13.6% - 8px);
+    left: auto;
+}
+
+/* Cards da direita */
+.timeline-item.right {
+    align-self: flex-end;
+}
+
+.timeline-item.right::after {
+    left: calc(-13.6% - 8px);
+    right: auto;
+}
+
+/* ------------------------------------
+   CONTEÚDO DOS CARDS
+------------------------------------ */
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+    padding-right: 15px;
+    border-radius: 12px;
+    transition: background 0.2s ease;
+}
+
+.timeline-text {
+    color: #4a3731;
+    margin: 0;
+}
+
+.timeline-text h3 {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.timeline-text time {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    font-family: system-ui, sans-serif;
+}
+
+.timeline-text p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    font-family: system-ui, sans-serif;
+}
+
+.timeline-image {
     width: 250px;
     height: 250px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 12px;
     flex-shrink: 0;
-}
-
-.timeline-text{
-    color:#2C2523;
-}
-
-.timeline-divisor{
-    align-self: center;
-    align-items: center;
-}
-.timeline-title{
-    text-align: center;
-    height: 50px;
-    color: #5C4033;
-}
-
-@media screen and (max-width: 768px) {
-
-    .timeline-container::before {
-        left: 30px; /* Em vez de 50%, a linha agora fica fixa perto da borda esquerda */
-        transform: none; /* Remove o ajuste de centralização anterior */
-    }
-
-    /* 2. REESTRUTURA OS CARDS */
-    .timeline-item {
-        max-width: calc(100% - 60px); /* O card ocupa quase a tela toda, deixando espaço para a linha */
-        width: 100%;
-        margin-left: 60px; /* Empurra o card para a direita para não cobrir a linha rosa */
-        align-self: flex-end !important; /* Força TANTO os cards left quanto right a irem para a direita */
-        
-        /* Se a tela for muito pequena, muda para coluna para a foto não esmagar o texto */
-        flex-direction: column; 
-        text-align: center;
-    }
     
+    /* TOQUE ROSA: borda suave ao redor da imagem */
+    border: 1px solid rgba(232, 165, 152, 0.2);
+}
+
+/* ------------------------------------
+   MOBILE (até 768px)
+------------------------------------ */
+@media screen and (max-width: 768px) {
+    .timeline-section {
+        padding: 1.5rem 1rem 2rem 1rem;
+    }
+
+    .timeline-title {
+        font-size: 1.5rem;
+    }
+
+    .timeline-divisor {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Linha vertical na lateral esquerda */
+    .timeline-container::before {
+        left: 30px;
+        transform: none;
+    }
+
+    /* Cards ocupam quase toda largura */
+    .timeline-item {
+        max-width: calc(100% - 60px);
+        width: 100%;
+        margin-left: 60px;
+        align-self: flex-end !important;
+        flex-direction: column;
+        text-align: center;
+        padding: 18px;
+    }
+
     .timeline-content {
         padding-right: 0;
-        text-align: center; /* Centraliza o texto no mobile */
+        text-align: center;
     }
 
     .timeline-image {
-        width: 100%; /* A foto passa a ocupar a largura total disponível no card */
-        max-height: 200px; /* Limita a altura para não ficar gigante */
+        width: 100%;
+        max-height: 200px;
+        object-fit: cover;
     }
 
-    /* 3. REPOSICIONA TODAS AS BOLINHAS NA ESQUERDA */
-    /* Como todos os cards foram para a direita da linha, todas as bolinhas precisam 
-       ficar presas na borda ESQUERDA de cada card para interceptar a linha rosa */
+    /* Todas as bolinhas na esquerda */
     .timeline-item.left::after,
     .timeline-item.right::after {
-        left: -38px; /* Ajuste fixo em pixels para cravar a bolinha em cima da linha na esquerda */
-        right: auto; /* Anula o valor de right que usamos no desktop */
+        left: -38px;
+        right: auto;
+    }
+}
+
+/* ------------------------------------
+   AJUSTE PARA TABLETS PEQUENOS
+------------------------------------ */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .timeline-item {
+        max-width: 48%;
+    }
+    
+    .timeline-image {
+        width: 180px;
+        height: 180px;
     }
 }

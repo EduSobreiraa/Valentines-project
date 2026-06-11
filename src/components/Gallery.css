@@ -1,66 +1,203 @@
-.gallery-container{
+/* ====================================
+   GALLERY SECTION - CSS COMPLETO
+   Estilo minimalista com toques rosê suaves
+   ==================================== */
+
+/* ------------------------------------
+   SEÇÃO PRINCIPAL
+------------------------------------ */
+.gallery-section {
+    background-color: #faf7f5;
+    padding: 2rem 1rem 4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ------------------------------------
+   TÍTULO DA SEÇÃO (mesmo padrão)
+------------------------------------ */
+.gallery-titulo {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.6rem;
+    font-weight: 450;
+    color: #4a3731;
+    text-align: center;
+    margin: 0 auto 2rem auto;
+    max-width: 90%;
+    letter-spacing: -0.3px;
+    line-height: 1.4;
+    position: relative;
+    display: inline-block;
+    width: auto;
+    background: linear-gradient(120deg, #e8a598 0%, #e8a598 40%, transparent 40%);
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    background-position: bottom left;
+    animation: galleryUnderlineReveal 0.8s ease-out forwards;
+    padding-bottom: 8px;
+}
+
+@keyframes galleryUnderlineReveal {
+    0% { background-size: 0% 2px; }
+    100% { background-size: 100% 2px; }
+}
+
+/* ------------------------------------
+   CONTAINER DA GALERIA
+------------------------------------ */
+.gallery-container {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    justify-content:center ;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.gallery-item{
-    background-color: white;
-    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.45);
-    border-radius: 15px;
-    padding: 10px;
+/* ------------------------------------
+   CARDS DA GALERIA
+------------------------------------ */
+.gallery-item {
+    background-color: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    border-radius: 18px;
+    padding: 12px;
     position: relative;
     text-align: center;
+    transition: all 0.2s ease;
+    border-top: 2px solid #e8a598;
+    
+    /* Animação de entrada */
+    animation: galleryFadeInUp 0.4s ease backwards;
 }
 
+/* Delay progressivo para cada item */
+.gallery-item:nth-child(1) { animation-delay: 0.05s; }
+.gallery-item:nth-child(2) { animation-delay: 0.1s; }
+.gallery-item:nth-child(3) { animation-delay: 0.15s; }
+.gallery-item:nth-child(4) { animation-delay: 0.2s; }
+.gallery-item:nth-child(5) { animation-delay: 0.25s; }
+.gallery-item:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes galleryFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery-item:hover {
+    box-shadow: 0 4px 20px rgba(232, 165, 152, 0.12);
+    transform: translateY(-3px);
+}
+
+/* Detalhe decorativo superior (substituindo o pseudo-elemento antigo) */
 .gallery-item::before {
-  content: "";
-  position: absolute;
-
-  top: -10px;
-  left: 50%;
-
-  transform: translateX(-50%) rotate(-3deg);
-
-  width: 70px;
-  height: 20px;
-
-  background: rgba(232, 128, 135, 0.5);
-
-  border-radius: 4px;
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e8a598, #e8a598, transparent);
+    border-radius: 2px;
 }
-.gallery-image{
+
+/* ------------------------------------
+   IMAGEM DA GALERIA
+------------------------------------ */
+.gallery-image {
     width: 350px;
     height: 350px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 12px;
     flex-shrink: 0;
+    border: 1px solid rgba(232, 165, 152, 0.15);
+    transition: transform 0.3s ease;
 }
 
-.gallery-text{ 
-    color: #e88087;
+.gallery-item:hover .gallery-image {
+    transform: scale(1.01);
 }
+
+/* ------------------------------------
+   TEXTO/LEGENDA
+------------------------------------ */
+.gallery-content {
+    margin-top: 12px;
+    padding: 4px 8px;
+}
+
+.gallery-text {
+    color: #e8a598;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+/* ------------------------------------
+   RESPONSIVO (MOBILE)
+------------------------------------ */
 @media screen and (max-width: 768px) {
+    .gallery-section {
+        padding: 1.5rem 1rem 3rem 1rem;
+    }
+
+    .gallery-titulo {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+
     .gallery-container {
-        /* Diminui o espaçamento entre os itens para caber melhor na tela menor */
-        gap: 20px; 
-        padding: 0 15px; /* Adiciona uma folga nas laterais da tela */
+        gap: 24px;
+        padding: 0;
     }
 
     .gallery-item {
-        /* Garante que o container do item não passe do tamanho da tela */
-        width: 100%; 
-        max-width: 350px; /* Mantém o limite do design original */
-        box-shadow: 0 2px 8px 0 #635063(0,0,0,0.25); /* Sombra um pouco mais leve para mobile */
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
     }
 
     .gallery-image {
-        /* Torna a imagem responsiva: ela vai ocupar 100% da largura do item */
-        width: 100%; 
-        /* Altera a altura para auto (opcional) para manter a proporção, 
-           ou mantém um valor fixo menor se quiser manter o formato quadrado. Ex: height: 300px; */
-        height: auto; 
-        aspect-ratio: 1 / 1; /* Garante que ela continue perfeitamente quadrada (350x350) */
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .gallery-text {
+        font-size: 0.85rem;
+    }
+}
+
+/* ------------------------------------
+   TABLETS PEQUENOS
+------------------------------------ */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .gallery-container {
+        gap: 28px;
+    }
+
+    .gallery-image {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+/* ------------------------------------
+   DESKTOP
+------------------------------------ */
+@media screen and (min-width: 1024px) {
+    .gallery-container {
+        gap: 35px;
     }
 }

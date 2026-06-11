@@ -4,9 +4,8 @@ export default function GallerySection(props){
 
     return(
         <section className="gallery-section">
-            <h2>
+            <h2 className="gallery-titulo">
                 Apesar de não termos muitas fotos juntos, todas elas valem muito!
-                <br />
                 já que elas são a prova eterna dos momentos lindos que nós vivemos juntos.
             </h2>
 

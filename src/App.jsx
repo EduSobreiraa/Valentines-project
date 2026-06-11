@@ -1,31 +1,38 @@
+import { useState } from 'react'; // <-- ADICIONE ESTA LINHA
 
-//Importando a variável criada no arquivo timeline.js
+// Importando a variável criada no arquivo timeline.js
 import { timeline } from "./data/timeline";
-import {photos} from "./data/photos";
-import {quiz } from "./data/quiz"
-import {memories} from "./data/memories"
+import { photos } from "./data/photos";
+import { memories } from "./data/memories";
 
-//Aqui estamos importando o local para onde nós vamos enviar os dados
+// Import da página de senha
+import PasswordPage from "./components/PasswordPage"; // <-- ADICIONE ESTA LINHA
+
+// Aqui estamos importando o local para onde nós vamos enviar os dados
 import TimelineSection from "./sections/TimeLineSection";
 import GallerySection from "./sections/GallerySection";
-import QuiZSection from "./sections/QuizSection";
-import MemoriesSection from "./sections/MemoriesSection"
-import HeroSection from "./sections/HeroSection"
-import CounterSection from "./sections/CounterSection";
-import LetterSection from "./sections/LetterSection"
-import CapsuleSection from "./sections/CapsuleSection"
+import MemoriesSection from "./sections/MemoriesSection";
+import HeroSection from "./sections/HeroSection";
+import LetterSection from "./sections/LetterSection";
 
-export default function app(){
-  return (
-    <>
-      <HeroSection />
-      <CounterSection/>
-      <TimelineSection timeline={timeline} />
-      <GallerySection photos={photos} />
-      <MemoriesSection memories={memories} />
-      <QuiZSection quiz={quiz} />
-      <LetterSection/>
-      <CapsuleSection/>
-    </>
-  );
+export default function App() { // <-- ALTERE de "app" para "App"
+    const [isAuthenticated, setIsAuthenticated] = useState(false); // <-- ADICIONE ESTA LINHA
+
+    const handleSuccess = () => { // <-- ADICIONE ESTA LINHA
+        setIsAuthenticated(true); // <-- ADICIONE ESTA LINHA
+    }; // <-- ADICIONE ESTA LINHA
+
+    if (!isAuthenticated) { // <-- ADICIONE ESTA LINHA
+        return <PasswordPage onSuccess={handleSuccess} />; // <-- ADICIONE ESTA LINHA
+    } // <-- ADICIONE ESTA LINHA
+
+    return (
+        <>
+            <HeroSection />
+            <TimelineSection timeline={timeline} />
+            <GallerySection photos={photos} />
+            <MemoriesSection memories={memories} />
+            <LetterSection />
+        </>
+    );
 }

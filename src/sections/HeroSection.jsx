@@ -1,8 +1,11 @@
+import "../components/Hero.css"
+
 export default function HeroSection(){
     return(
-<section>
-    <h1>Feliz dia dos Namorados, Meu Amor!</h1>
-    <p>Seja bem vinda a algo que fiz com muito carinho e dedicação.</p>
-    <p>Eu te amo muito</p>
+<section className="hero-container">
+    <img src="/photos/img08.jpeg" alt="Um dia especial" />
+    <h1 className="hero-titulo">Para Gabriela Mel</h1>
+    <p className="hero-subtitulo"> Alguns momentos e lembranças que me fazem escolher você todos os dias</p>
+    <span className="hero-scroll">↓</span>
 </section>
 )}

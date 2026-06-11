@@ -1,18 +1,83 @@
-/* Container que envelopa a lista de memórias no componente Pai */
+/* ====================================
+   MEMORIES SECTION - CSS COMPLETO
+   Estilo minimalista com toques rosê suaves
+   ==================================== */
+
+/* ------------------------------------
+   SEÇÃO PRINCIPAL
+------------------------------------ */
+.memories-section {
+    background-color: #faf7f5;
+    padding: 2rem 1rem 4rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ------------------------------------
+   HEADER / TRANSIÇÃO
+------------------------------------ */
+.memories-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.6rem;
+    font-weight: 450;
+    color: #4a3731;
+    text-align: center;
+    margin: 0 auto 0.75rem auto;
+    max-width: 90%;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    background: linear-gradient(120deg, #e8a598 0%, #e8a598 40%, transparent 40%);
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    background-position: bottom left;
+    animation: memoriesUnderlineReveal 0.8s ease-out forwards;
+    padding-bottom: 8px;
+}
+
+@keyframes memoriesUnderlineReveal {
+    0% { background-size: 0% 2px; }
+    100% { background-size: 100% 2px; }
+}
+
+/* Subtítulo */
+.memories-subtitle {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.9rem;
+    color: #a38a7c;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+/* ------------------------------------
+   CONTAINER DOS CARDS
+------------------------------------ */
 .memories-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px; /* Espaçamento equilibrado entre os blocos */
-    padding: 40px 20px;
-    background-color: #FDFBF7; /* Fundo off-white minimalista */
+    gap: 24px;
+    padding: 20px 20px 40px 20px;
+    background-color: transparent;
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Base comum para os dois tipos de cards */
+/* ------------------------------------
+   BASE COMUM DOS CARDS
+------------------------------------ */
 .memories-card {
     background-color: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.30); /* Sombra super leve */
+    border-radius: 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     max-width: 420px;
     width: 100%;
     overflow: hidden;
@@ -20,9 +85,40 @@
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    transition: all 0.2s ease;
+    border-top: 2px solid #e8a598;
+    
+    /* Animação de entrada */
+    animation: fadeInUp 0.4s ease backwards;
 }
 
-/* Customização do bloco de Foto */
+/* Delay progressivo para cada card */
+.memories-card:nth-child(1) { animation-delay: 0.05s; }
+.memories-card:nth-child(2) { animation-delay: 0.1s; }
+.memories-card:nth-child(3) { animation-delay: 0.15s; }
+.memories-card:nth-child(4) { animation-delay: 0.2s; }
+.memories-card:nth-child(5) { animation-delay: 0.25s; }
+.memories-card:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.memories-card:hover {
+    box-shadow: 0 4px 20px rgba(232, 165, 152, 0.12);
+    transform: translateY(-2px);
+}
+
+/* ------------------------------------
+   CARD DO TIPO FOTO
+------------------------------------ */
 .memories-type-photo {
     padding: 12px;
 }
@@ -36,30 +132,168 @@
 .memories-image {
     width: 100%;
     height: auto;
-    border-radius: 12px;
+    border-radius: 14px;
     object-fit: cover;
     display: block;
+    border: 1px solid rgba(232, 165, 152, 0.2);
 }
 
-/* Customização do bloco de Texto/Coração */
+/* ------------------------------------
+   CARD DO TIPO CORAÇÃO
+------------------------------------ */
 .memories-type-heart {
-    padding: 24px;
+    padding: 28px 24px;
     text-align: center;
-    background-color: hsl(0, 100%, 92%);
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.45);
+    background: linear-gradient(135deg, #ffffff 0%, #fffcf9 100%);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    position: relative;
+    border-left: none;
+    border-top: 2px solid #e8a598;
 }
 
+/* Detalhe decorativo superior (mais suave) */
+.memories-type-heart::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #e8a598, #e8a598, transparent);
+    border-radius: 2px;
+}
+
+/* Ícone do coração */
 .memories-heart {
-    font-size: 2rem;
-    margin-bottom: 12px;
-    display: inline-block;
+    background: linear-gradient(135deg, #e8a598 0%, #d4847a 100%);
+    color: white;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 8px rgba(232, 165, 152, 0.3);
+    transition: transform 0.2s ease;
 }
 
+.memories-card:hover .memories-heart {
+    transform: scale(1.05);
+}
+
+/* Texto do card coração */
 .memories-text {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    color: #2C2523;
-    font-size: 1rem;
-    font-weight: 500;
+    color: #4a3731;
+    font-size: 0.95rem;
+    font-weight: 450;
     line-height: 1.6;
     margin: 0;
+}
+
+/* ------------------------------------
+   RESPONSIVO
+------------------------------------ */
+@media (max-width: 768px) {
+    .memories-section {
+        padding: 1.5rem 1rem 3rem 1rem;
+    }
+
+    .memories-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .memories-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .memories-container {
+        gap: 20px;
+        padding: 10px 16px 30px 16px;
+    }
+
+    .memories-card {
+        max-width: 100%;
+    }
+
+    .memories-type-heart {
+        padding: 22px 20px;
+    }
+
+    .memories-heart {
+        width: 46px;
+        height: 46px;
+        font-size: 1.3rem;
+        margin-bottom: 14px;
+    }
+
+    .memories-text {
+        font-size: 0.9rem;
+    }
+}
+
+.memories-title {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.8rem;
+    font-weight: 450;
+    color: #4a3731;
+    text-align: center;
+    margin: 0 auto 0.75rem auto;
+    max-width: 90%;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+    position: relative;
+    display: inline-block;
+    width: auto;
+    background: linear-gradient(120deg, #e8a598 0%, #e8a598 40%, transparent 40%);
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    background-position: bottom left;
+    animation: memoriesUnderlineReveal 0.8s ease-out forwards;
+    padding-bottom: 8px;
+}
+
+@keyframes memoriesUnderlineReveal {
+    0% { background-size: 0% 2px; }
+    100% { background-size: 100% 2px; }
+}
+/* ------------------------------------
+   TABLETS PEQUENOS
+------------------------------------ */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .memories-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 28px;
+    }
+
+    .memories-card {
+        max-width: 340px;
+    }
+}
+
+/* ------------------------------------
+   DESKTOP (GRID)
+------------------------------------ */
+@media (min-width: 1024px) {
+    .memories-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 32px;
+    }
+
+    .memories-card {
+        max-width: 360px;
+    }
+}
+@media (max-width: 768px) {
+    .memories-title {
+        font-size: 1.5rem;
+    }
 }
