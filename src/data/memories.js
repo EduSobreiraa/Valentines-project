@@ -1,8 +1,10 @@
+const base = import.meta.env.BASE_URL;
+
 export const memories = [
     {
         id:1,
         tipo:"photo",
-        foto:"/photos/img013.jpeg"
+        foto:`${base}photos/img013.jpeg`
     },
     {
         id:2,
@@ -12,7 +14,7 @@ export const memories = [
     {
         id:3,
         tipo:"photo",
-        foto:"/photos/img014.jpeg"
+        foto:`${base}photos/img014.jpeg`
         
     },
     {
@@ -23,7 +25,7 @@ export const memories = [
     {
         id:5,
         tipo:"photo",
-        foto:"/photos/img015.jpeg"
+        foto:`${base}photos/img015.jpeg`
     },
     {
         id:6,
@@ -33,7 +35,7 @@ export const memories = [
     {
         id:7,
         tipo:"photo",
-        foto:"/photos/img016.jpeg"
+        foto:`${base}photos/img016.jpeg`
     },
     {
         id:8,
@@ -43,7 +45,7 @@ export const memories = [
     {
         id:9,
         tipo:"photo",
-        foto:"/photos/img017.jpeg"
+        foto:`${base}photos/img017.jpeg`
     },
     {
         id:10,
@@ -53,7 +55,7 @@ export const memories = [
     {
         id:11,
         tipo:"photo",
-        foto:"/photos/img018.jpeg"
+        foto:`${base}photos/img018.jpeg`
     },
     {
         id:12,
